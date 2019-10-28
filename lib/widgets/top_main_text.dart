@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:the_goal/models/goal_list_data.dart';
 
 class MainText extends StatelessWidget {
   @override
@@ -7,9 +9,8 @@ class MainText extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text(
-            '26 Goals',
-            style: TextStyle(
-                fontSize: 26, fontWeight: FontWeight.w500),
+            '${Provider.of<GoalListData>(context).getLengthGoalList} Goals',
+            style: TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
           ),
           SizedBox(
             height: 10,

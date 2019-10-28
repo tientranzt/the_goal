@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-class AddNewExpectDate extends StatefulWidget {
-  @override
-  _AddNewExpectDateState createState() => _AddNewExpectDateState();
-}
-
-class _AddNewExpectDateState extends State<AddNewExpectDate> {
+class AddNewExpectDate extends StatelessWidget {
+  final DateTime pickDate;
+  final handleDateExpected;
+  AddNewExpectDate({this.pickDate, this.handleDateExpected});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,18 +20,20 @@ class _AddNewExpectDateState extends State<AddNewExpectDate> {
               ),
               child: ListTile(
                 leading: Text(
-                  '50 YRS',
+                  '${DateFormat.yMMMd().format(pickDate)}',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 trailing: FlatButton(
                   onPressed: () {
-                    showModalBottomSheet(
-                        context: context,
-                        builder: (context) {
-                          return Column(
-                            children: <Widget>[TextField()],
-                          );
-                        });
+                    showDatePicker(
+                      locale: Locale('vi'),
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(2019),
+                      lastDate: DateTime(2050),
+                    ).then((value) {
+                      handleDateExpected(value);
+                    });
                   },
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,

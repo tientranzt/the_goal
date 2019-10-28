@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AddNewButton extends StatelessWidget {
+  final Function handleAddNewGoal;
+  AddNewButton({this.handleAddNewGoal});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +16,9 @@ class AddNewButton extends StatelessWidget {
           'Add New',
           style: TextStyle(color: Colors.white, fontSize: 18),
         ),
-        onPressed: () {},
+        onPressed: (){
+          handleAddNewGoal();
+        },
       ),
     );
   }

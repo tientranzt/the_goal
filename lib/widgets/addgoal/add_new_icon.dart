@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-class AddNewIcon extends StatefulWidget {
-  @override
-  _AddNewIconState createState() => _AddNewIconState();
-}
-
-class _AddNewIconState extends State<AddNewIcon> {
-  IconData pickIcon = Icons.alarm_add;
+class AddNewIcon extends StatelessWidget {
+  final IconData pickIcon;
+  final Function handleIcon;
+  AddNewIcon({this.pickIcon, this.handleIcon});
 
   final List<IconData> iconData = [
     Icons.account_circle,
@@ -62,10 +59,6 @@ class _AddNewIconState extends State<AddNewIcon> {
                         context: context,
                         builder: (context) {
                           return Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(15),
-                                    topRight: Radius.circular(15))),
                             child: GridView.builder(
                                 itemCount: iconData.length,
                                 gridDelegate:
@@ -74,12 +67,15 @@ class _AddNewIconState extends State<AddNewIcon> {
                                 itemBuilder: (context, index) {
                                   return FlatButton(
                                       onPressed: () {
-                                        setState(() {
-                                          pickIcon = iconData[index];
-                                        });
+                                        handleIcon(iconData[index]);
                                         Navigator.pop(context);
                                       },
-                                      child: Icon(iconData[index]));
+                                      child: IconButton(
+                                        icon: Icon(
+                                          iconData[index],
+                                          size: 40,
+                                        ),
+                                      ));
                                 }),
                           );
                         });

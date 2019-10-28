@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-class AddNewColor extends StatefulWidget {
-  @override
-  _AddNewColorState createState() => _AddNewColorState();
-}
-
-class _AddNewColorState extends State<AddNewColor> {
-  Color pickColor = Colors.blue;
+class AddNewColor extends StatelessWidget {
+  final Color pickColor;
+  final Function handleColor;
+  AddNewColor({this.pickColor, this.handleColor});
 
   final List<Color> colorData = [
     Colors.grey,
@@ -50,7 +47,7 @@ class _AddNewColorState extends State<AddNewColor> {
                   color: pickColor,
                   onPressed: () {},
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
+                      borderRadius: BorderRadius.circular(25)),
                 ),
                 trailing: FlatButton(
                   onPressed: () {
@@ -58,10 +55,6 @@ class _AddNewColorState extends State<AddNewColor> {
                         context: context,
                         builder: (context) {
                           return Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(15),
-                                    topRight: Radius.circular(15))),
                             child: GridView.builder(
                                 itemCount: colorData.length,
                                 gridDelegate:
@@ -70,12 +63,11 @@ class _AddNewColorState extends State<AddNewColor> {
                                 itemBuilder: (context, index) {
                                   return FlatButton(
                                       onPressed: () {
-                                        setState(() {
-                                          pickColor = colorData[index];
-                                        });
+                                        handleColor(colorData[index]);
                                         Navigator.pop(context);
                                       },
                                       child: CircleAvatar(
+                                        radius: 40,
                                         backgroundColor: colorData[index],
                                       ));
                                 }),

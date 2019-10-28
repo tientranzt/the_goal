@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 
 class AddNewReminder extends StatelessWidget {
+  final DateTime pickDayNotifications;
+  final Function handleReminder;
+  final Function handleReminderContent;
+
+  AddNewReminder(
+      {this.handleReminder,
+      this.pickDayNotifications,
+      this.handleReminderContent});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,12 +26,83 @@ class AddNewReminder extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(15))),
               child: ListTile(
                 leading: Text(
-                  '5th of every month',
+                  '${DateFormat.yMMMd().format(pickDayNotifications)}',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 trailing: FlatButton(
                   onPressed: () {
-                    print('Reminder');
+                    showModalBottomSheet(
+                        context: context,
+                        builder: (context) {
+                          return Padding(
+                            padding: EdgeInsets.only(
+                                bottom:
+                                    MediaQuery.of(context).viewInsets.bottom),
+                            child: Container(
+                                padding: const EdgeInsets.all(15),
+                                height: 220,
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: <Widget>[
+                                      TextField(
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(15))),
+                                            labelText: 'Notifications content'),
+                                        onChanged: (value) {
+                                          handleReminderContent(value);
+                                        },
+                                      ),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      ListTile(
+                                        leading: Text(
+                                          '${DateFormat.yMMMd().format(pickDayNotifications)}',
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        trailing: FlatButton(
+                                          onPressed: () {
+                                            showDatePicker(
+                                              locale: Locale('en'),
+                                              context: context,
+                                              initialDate: DateTime.now(),
+                                              firstDate: DateTime(2019),
+                                              lastDate: DateTime(2050),
+                                            ).then((value) {
+                                              handleReminder(value);
+                                            });
+                                          },
+                                          splashColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          padding: EdgeInsets.only(left: 30),
+                                          child: Text(
+                                            'Choose',
+                                            style: TextStyle(
+                                                color: Color(0xFF396DF0)),
+                                          ),
+                                        ),
+                                      ),
+                                      FlatButton(
+                                        child: Text(
+                                          'OK',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                        color: Colors.blueAccent,
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                )),
+                          );
+                        });
                   },
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
