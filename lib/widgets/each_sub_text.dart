@@ -19,7 +19,7 @@ class EachSubText extends StatelessWidget {
             height: 10,
           ),
           Text(
-            number / 10 < 0.99 ? "0$number" : "$number",
+            '$number',
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
           ),
         ],

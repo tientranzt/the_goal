@@ -27,7 +27,7 @@ class AddNewReminder extends StatelessWidget {
               child: ListTile(
                 leading: Text(
                   '${DateFormat.yMMMd().format(pickDayNotifications)}',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 trailing: FlatButton(
                   onPressed: () {
@@ -63,7 +63,7 @@ class AddNewReminder extends StatelessWidget {
                                         leading: Text(
                                           '${DateFormat.yMMMd().format(pickDayNotifications)}',
                                           style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         trailing: FlatButton(
@@ -75,7 +75,12 @@ class AddNewReminder extends StatelessWidget {
                                               firstDate: DateTime(2019),
                                               lastDate: DateTime(2050),
                                             ).then((value) {
-                                              handleReminder(value);
+                                              var checkDateReminderValue =
+                                                  value == null
+                                                      ? DateTime.now()
+                                                      : value;
+                                              handleReminder(
+                                                  checkDateReminderValue);
                                             });
                                           },
                                           splashColor: Colors.transparent,

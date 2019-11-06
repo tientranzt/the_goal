@@ -21,7 +21,7 @@ class AddNewExpectDate extends StatelessWidget {
               child: ListTile(
                 leading: Text(
                   '${DateFormat.yMMMd().format(pickDate)}',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 trailing: FlatButton(
                   onPressed: () {
@@ -32,7 +32,9 @@ class AddNewExpectDate extends StatelessWidget {
                       firstDate: DateTime(2019),
                       lastDate: DateTime(2050),
                     ).then((value) {
-                      handleDateExpected(value);
+                      var checkDateExpectValue =
+                          value == null ? DateTime.now() : value;
+                      handleDateExpected(checkDateExpectValue);
                     });
                   },
                   splashColor: Colors.transparent,

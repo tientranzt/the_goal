@@ -18,11 +18,11 @@ class AddNewDescription extends StatelessWidget {
               },
               decoration: InputDecoration(
                   hintStyle:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   hintText: 'Some description here for detail your goal',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15)))),
-              maxLines: 5,
+              maxLines: 4,
             ),
           ),
         )

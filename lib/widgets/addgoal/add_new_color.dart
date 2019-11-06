@@ -1,33 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:the_goal/models/goal_list_data.dart';
 
 class AddNewColor extends StatelessWidget {
-  final Color pickColor;
+  final int pickColor;
   final Function handleColor;
   AddNewColor({this.pickColor, this.handleColor});
-
-  final List<Color> colorData = [
-    Colors.grey,
-    Colors.blueAccent,
-    Colors.yellowAccent,
-    Colors.redAccent,
-    Colors.greenAccent,
-    Colors.pinkAccent,
-    Colors.deepOrange,
-    Colors.indigo,
-    Colors.red,
-    Colors.black87,
-    Colors.tealAccent,
-    Colors.amberAccent,
-    Colors.lightGreen,
-    Colors.lightBlue,
-    Colors.purple,
-    Colors.orange,
-    Colors.teal,
-    Colors.lightBlueAccent,
-    Colors.blueAccent,
-    Colors.pink,
-    Colors.deepOrangeAccent,
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +22,11 @@ class AddNewColor extends StatelessWidget {
               child: ListTile(
                 leading: FlatButton(
                   child: null,
-                  color: pickColor,
-                  onPressed: () {},
+                  color:
+                      Provider.of<GoalListData>(context).colorList[pickColor],
+                  onPressed: () {
+                    print('Choose color');
+                  },
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
                 ),
@@ -56,19 +37,22 @@ class AddNewColor extends StatelessWidget {
                         builder: (context) {
                           return Container(
                             child: GridView.builder(
-                                itemCount: colorData.length,
+                                itemCount: Provider.of<GoalListData>(context)
+                                    .lengthColorList,
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 5),
                                 itemBuilder: (context, index) {
                                   return FlatButton(
                                       onPressed: () {
-                                        handleColor(colorData[index]);
+                                        handleColor(index);
                                         Navigator.pop(context);
                                       },
                                       child: CircleAvatar(
                                         radius: 40,
-                                        backgroundColor: colorData[index],
+                                        backgroundColor:
+                                            Provider.of<GoalListData>(context)
+                                                .colorList[index],
                                       ));
                                 }),
                           );

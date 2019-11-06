@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:the_goal/models/goal.dart';
 import 'package:the_goal/widgets/addgoal/button_add_new.dart';
 import 'package:the_goal/widgets/addgoal/add_new_title.dart';
 import 'package:the_goal/widgets/addgoal/add_new_description.dart';
@@ -20,9 +19,9 @@ class _AddGoalContainerState extends State<AddGoalContainer> {
 
   String textDecsiption = '';
 
-  IconData icon = Icons.alarm;
+  int icon = 1;
 
-  Color color = Colors.blueAccent;
+  int color = 1;
 
   DateTime reminder = DateTime.now();
 
@@ -31,40 +30,36 @@ class _AddGoalContainerState extends State<AddGoalContainer> {
   DateTime dateExpected = DateTime.now();
 
   void setTextTitle(String currentTitle) {
-    print(currentTitle);
     setState(() {
       textTitle = currentTitle;
     });
   }
 
   void setTextDesciption(String currentDecs) {
-    print(currentDecs);
     setState(() {
       textDecsiption = currentDecs;
     });
   }
 
-  void setIcon(IconData currentIcon) {
+  void setIcon(int indexIcon) {
     setState(() {
-      icon = currentIcon;
+      icon = indexIcon;
     });
   }
 
-  void setColor(Color currentColor) {
+  void setColor(int indexColor) {
     setState(() {
-      color = currentColor;
+      color = indexColor;
     });
   }
 
   void setReminder(DateTime currentReminder) {
-    print(currentReminder);
     setState(() {
       reminder = currentReminder;
     });
   }
 
   void setReminderContent(String content) {
-    print(content);
     setState(() {
       reminderConent = content;
     });
@@ -77,16 +72,17 @@ class _AddGoalContainerState extends State<AddGoalContainer> {
   }
 
   void addGoalToList() {
-    Goal goal = Goal(
-      color: color,
-      dateExpected: dateExpected,
-      decsText: textDecsiption,
-      icon: icon,
-      reminder: reminder,
-      text: textTitle,
-    );
-    Provider.of<GoalListData>(context).addItemToListGoad(goal);
-
+    var goal = {
+      "text": textTitle,
+      "decsText": textDecsiption,
+      "icon": icon,
+      "color": color,
+      "reminder": reminder.toString(),
+      "dateExpected": dateExpected.toString(),
+      "createDate": DateTime.now().toString(),
+      "isDone": 0
+    };
+    Provider.of<GoalListData>(context).addItemToListGoal(goal);
     Navigator.pop(context);
   }
 

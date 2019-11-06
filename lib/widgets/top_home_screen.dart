@@ -11,7 +11,7 @@ class TopHomeScreenBody extends StatelessWidget {
       child: Container(
         color: Color(0xFF396DF0),
         padding: EdgeInsets.only(top: 0, right: 12, left: 12, bottom: 30),
-        height: 220,
+        height: 200,
         width: double.infinity,
         child: Container(
           decoration: BoxDecoration(
@@ -20,7 +20,10 @@ class TopHomeScreenBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[MainText(), SubText(),],
+            children: <Widget>[
+              MainText(),
+              SubText(),
+            ],
           ),
         ),
       ),

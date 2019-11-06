@@ -1,43 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:the_goal/models/goal_list_data.dart';
 
 class AddNewIcon extends StatelessWidget {
-  final IconData pickIcon;
+  final int pickIcon;
   final Function handleIcon;
-  AddNewIcon({this.pickIcon, this.handleIcon});
 
-  final List<IconData> iconData = [
-    Icons.account_circle,
-    Icons.add,
-    Icons.account_box,
-    Icons.account_balance,
-    Icons.alarm,
-    Icons.label,
-    Icons.photo,
-    Icons.list,
-    Icons.input,
-    Icons.print,
-    Icons.remove,
-    Icons.more,
-    Icons.title,
-    Icons.photo_camera,
-    Icons.access_alarm,
-    Icons.add_alert,
-    Icons.adjust,
-    Icons.arrow_forward_ios,
-    Icons.airline_seat_flat,
-    Icons.assessment,
-    Icons.time_to_leave,
-    Icons.memory,
-    Icons.border_inner,
-    Icons.battery_full,
-    Icons.bluetooth,
-    Icons.call_merge,
-    Icons.brightness_1,
-    Icons.backup,
-    Icons.attach_money,
-    Icons.bubble_chart,
-    Icons.border_style,
-  ];
+  AddNewIcon({this.pickIcon, this.handleIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +21,9 @@ class AddNewIcon extends StatelessWidget {
                   border: Border.all(width: 1, color: Colors.grey),
                   borderRadius: BorderRadius.all(Radius.circular(15))),
               child: ListTile(
-                leading: Icon(pickIcon, color: Color(0xFF396DF0)),
+                leading: Icon(
+                    Provider.of<GoalListData>(context).iconList[pickIcon],
+                    color: Color(0xFF396DF0)),
                 trailing: FlatButton(
                   onPressed: () {
                     showModalBottomSheet(
@@ -60,20 +31,24 @@ class AddNewIcon extends StatelessWidget {
                         builder: (context) {
                           return Container(
                             child: GridView.builder(
-                                itemCount: iconData.length,
+                                itemCount: Provider.of<GoalListData>(context)
+                                    .lengthIconList,
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 5),
+
                                 itemBuilder: (context, index) {
                                   return FlatButton(
+
                                       onPressed: () {
-                                        handleIcon(iconData[index]);
+                                        handleIcon(index);
                                         Navigator.pop(context);
                                       },
                                       child: IconButton(
                                         icon: Icon(
-                                          iconData[index],
-                                          size: 40,
+                                          Provider.of<GoalListData>(context)
+                                              .iconList[index],
+                                          size: 35,
                                         ),
                                       ));
                                 }),

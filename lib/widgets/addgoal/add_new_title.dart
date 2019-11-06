@@ -18,7 +18,7 @@ class AddNewTitle extends StatelessWidget {
               },
               decoration: InputDecoration(
                   hintStyle:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   hintText: 'Save \$50.000',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15)))),
