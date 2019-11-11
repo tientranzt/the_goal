@@ -13,10 +13,12 @@ class AddNewTitle extends StatelessWidget {
           padding: EdgeInsets.only(bottom: 15, top: 15),
           child: Container(
             child: TextField(
+              textCapitalization: TextCapitalization.sentences,
               onChanged: (value) {
                 handleTitle(value);
               },
               decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(14),
                   hintStyle:
                       TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   hintText: 'Save \$50.000',

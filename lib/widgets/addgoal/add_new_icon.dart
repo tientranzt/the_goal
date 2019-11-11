@@ -36,10 +36,8 @@ class AddNewIcon extends StatelessWidget {
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 5),
-
                                 itemBuilder: (context, index) {
                                   return FlatButton(
-
                                       onPressed: () {
                                         handleIcon(index);
                                         Navigator.pop(context);
@@ -48,7 +46,7 @@ class AddNewIcon extends StatelessWidget {
                                         icon: Icon(
                                           Provider.of<GoalListData>(context)
                                               .iconList[index],
-                                          size: 35,
+                                          size: 32,
                                         ),
                                       ));
                                 }),

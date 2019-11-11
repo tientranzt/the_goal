@@ -9,13 +9,18 @@ class ActionIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       padding: EdgeInsets.all(15),
       icon: CircleAvatar(
         backgroundColor: Colors.white,
-        child: Icon(Icons.add),
+        child: Icon(
+          Icons.add,
+          size: 18,
+        ),
       ),
       onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (_){
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
           return AddGoal();
         }));
       },

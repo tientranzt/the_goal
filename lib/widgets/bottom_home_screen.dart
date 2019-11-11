@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 class BottomHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return FutureBuilder(
       future: Provider.of<GoalListData>(context).readGoalList(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -14,7 +13,7 @@ class BottomHomeScreen extends StatelessWidget {
           return Center(
             child: Padding(
               padding: EdgeInsets.all(5),
-              child: Text('Loading data'),
+              child: CircularProgressIndicator(),
             ),
           );
         }

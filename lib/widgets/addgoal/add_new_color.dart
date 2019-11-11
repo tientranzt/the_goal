@@ -5,6 +5,7 @@ import 'package:the_goal/models/goal_list_data.dart';
 class AddNewColor extends StatelessWidget {
   final int pickColor;
   final Function handleColor;
+
   AddNewColor({this.pickColor, this.handleColor});
 
   @override

@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
@@ -98,7 +97,6 @@ class GoalListData extends ChangeNotifier {
   void addItemToListGoal(goal) {
     _goalList.add(goal);
     writeListGoalToFile(_goalList);
-    notifyListeners();
   }
 
   void removeGoalFromList(int indexGoal) {

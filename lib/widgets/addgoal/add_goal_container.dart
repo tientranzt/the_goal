@@ -71,6 +71,36 @@ class _AddGoalContainerState extends State<AddGoalContainer> {
     });
   }
 
+  Future<void> _neverSatisfied() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15))),
+          title: Text('Oh no!'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Title and decsription must be fill'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Okay'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   void addGoalToList() {
     var goal = {
       "text": textTitle,
@@ -82,8 +112,13 @@ class _AddGoalContainerState extends State<AddGoalContainer> {
       "createDate": DateTime.now().toString(),
       "isDone": 0
     };
-    Provider.of<GoalListData>(context).addItemToListGoal(goal);
-    Navigator.pop(context);
+    if (goal['text'].toString().isEmpty &&
+        goal['decsText'].toString().isEmpty) {
+      _neverSatisfied();
+    } else {
+      Provider.of<GoalListData>(context).addItemToListGoal(goal);
+      Navigator.pop(context);
+    }
   }
 
   @override

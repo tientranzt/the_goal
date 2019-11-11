@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFFEEF0F2),
       appBar: AppBar(
+        titleSpacing: 0,
         backgroundColor: Color(0xFF396DF0),
         elevation: 0,
         leading: LeadinguttonIcon(),

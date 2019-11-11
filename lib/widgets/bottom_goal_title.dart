@@ -21,14 +21,14 @@ class BottomGoalTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dismissible(
+      key: ObjectKey(text + decsText),
       onDismissed: (direction) {
         Provider.of<GoalListData>(context).removeGoalFromList(indexGoal);
       },
       direction: DismissDirection.endToStart,
       background: Container(
-        height: 50,
         decoration: BoxDecoration(
-            color: Colors.red,
+            color: Colors.redAccent,
             borderRadius: BorderRadius.all(Radius.circular(15))),
         child: Padding(
           padding: EdgeInsets.only(right: 15),
@@ -54,48 +54,44 @@ class BottomGoalTitle extends StatelessWidget {
           ),
         ),
       ),
-      key: ObjectKey(text),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        child: Container(
-          padding: EdgeInsets.all(6),
-          child: ListTile(
-            title: Text(
-              text,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-            ),
-            leading: Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  width: 2,
-                  color: Provider.of<GoalListData>(context).colorList[color],
-                ),
-              ),
-              child: CircleAvatar(
-                radius: 26,
-                child: Icon(
-                  Provider.of<GoalListData>(context).iconList[icon],
-                  size: 26,
-                  color: Provider.of<GoalListData>(context).colorList[color],
-                ),
-                backgroundColor: Colors.white,
+        child: ListTile(
+          title: Text(
+            text,
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+          ),
+          leading: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                width: 2,
+                color: Provider.of<GoalListData>(context).colorList[color],
               ),
             ),
-            subtitle: Text(
-              decsText,
-              style: TextStyle(fontSize: 13),
-              maxLines: 2,
-            ),
-            trailing: GestureDetector(
-              onTap: () {
-                Provider.of<GoalListData>(context).checkDone(indexGoal);
-              },
+            child: CircleAvatar(
+              radius: 18,
               child: Icon(
-                Icons.done,
-                color: isDone == 1 ? Colors.green : Colors.grey,
-                size: 30,
+                Provider.of<GoalListData>(context).iconList[icon],
+                size: 22,
+                color: Provider.of<GoalListData>(context).colorList[color],
               ),
+              backgroundColor: Colors.white,
+            ),
+          ),
+          subtitle: Text(
+            decsText,
+            style: TextStyle(fontSize: 13),
+            maxLines: 1,
+          ),
+          trailing: GestureDetector(
+            onTap: () {
+              Provider.of<GoalListData>(context).checkDone(indexGoal);
+            },
+            child: Icon(
+              Icons.done,
+              color: isDone == 1 ? Colors.green : Colors.grey,
+              size: 30,
             ),
           ),
         ),

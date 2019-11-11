@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class AddNewDescription extends StatelessWidget {
   Function handleDescription;
+
   AddNewDescription({this.handleDescription});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -13,10 +15,12 @@ class AddNewDescription extends StatelessWidget {
           padding: EdgeInsets.only(bottom: 15, top: 15),
           child: Container(
             child: TextField(
+              textCapitalization: TextCapitalization.sentences,
               onChanged: (value) {
                 handleDescription(value);
               },
               decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(13),
                   hintStyle:
                       TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   hintText: 'Some description here for detail your goal',
