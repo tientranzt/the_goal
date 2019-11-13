@@ -35,13 +35,16 @@ class BottomHomeScreen extends StatelessWidget {
             shrinkWrap: true,
             itemBuilder: (context, index) {
               return BottomGoalTitle(
-                indexGoal: index,
-                text: '${snapshot.data[index]['text']}',
-                decsText: '${snapshot.data[index]['decsText']}',
-                color: snapshot.data[index]['color'],
-                icon: snapshot.data[index]['icon'],
-                isDone: snapshot.data[index]['isDone'],
-              );
+                  indexGoal: index,
+                  text: '${snapshot.data[index]['text']}',
+                  decsText: '${snapshot.data[index]['decsText']}',
+                  color: snapshot.data[index]['color'],
+                  icon: snapshot.data[index]['icon'],
+                  isDone: snapshot.data[index]['isDone'],
+                  createDate: snapshot.data[index]['createDate'],
+                  dateExpected: snapshot.data[index]['dateExpected'],
+                  reminderContent: snapshot.data[index]['reminderContent'],
+                  dateReminder: snapshot.data[index]['reminder']);
             },
             itemCount: snapshot.data.length,
           ),

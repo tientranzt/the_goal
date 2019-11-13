@@ -110,6 +110,10 @@ class _AddGoalContainerState extends State<AddGoalContainer> {
       "reminder": reminder.toString(),
       "dateExpected": dateExpected.toString(),
       "createDate": DateTime.now().toString(),
+      "reminder": reminder.toString(),
+      "reminderContent": reminderConent.isEmpty
+          ? "The goal $textTitle reminder !"
+          : reminderConent,
       "isDone": 0
     };
     if (goal['text'].toString().isEmpty &&

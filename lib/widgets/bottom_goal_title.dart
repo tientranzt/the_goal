@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:the_goal/models/goal_list_data.dart';
+import 'package:intl/intl.dart';
 
 class BottomGoalTitle extends StatelessWidget {
   final int indexGoal;
@@ -9,6 +10,10 @@ class BottomGoalTitle extends StatelessWidget {
   final int icon;
   final int color;
   final int isDone;
+  final String dateExpected;
+  final String createDate;
+  final String dateReminder;
+  final String reminderContent;
 
   BottomGoalTitle(
       {this.text,
@@ -16,7 +21,11 @@ class BottomGoalTitle extends StatelessWidget {
       this.icon,
       this.color,
       this.indexGoal,
-      this.isDone});
+      this.isDone,
+      this.dateExpected,
+      this.createDate,
+      this.dateReminder,
+      this.reminderContent});
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +65,10 @@ class BottomGoalTitle extends StatelessWidget {
       ),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        child: ListTile(
+        child: ExpansionTile(
           title: Text(
             text,
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
           leading: Container(
             decoration: BoxDecoration(
@@ -79,11 +88,6 @@ class BottomGoalTitle extends StatelessWidget {
               backgroundColor: Colors.white,
             ),
           ),
-          subtitle: Text(
-            decsText,
-            style: TextStyle(fontSize: 13),
-            maxLines: 1,
-          ),
           trailing: GestureDetector(
             onTap: () {
               Provider.of<GoalListData>(context).checkDone(indexGoal);
@@ -94,6 +98,42 @@ class BottomGoalTitle extends StatelessWidget {
               size: 30,
             ),
           ),
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(top: 0, left: 25, right: 25, bottom: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    "Description: " +
+                        decsText +
+                        "                                                       ",
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                  Text(
+                      "Date Expected: " +
+                          DateFormat.yMMMd()
+                              .format(DateTime.parse(dateExpected)),
+                      style: TextStyle(fontStyle: FontStyle.italic)),
+                  Text(
+                      'Date Created: ' +
+                          DateFormat.yMMMd().format(DateTime.parse(createDate)),
+                      style: TextStyle(fontStyle: FontStyle.italic)),
+                  Text(
+                      'Date Reminder: ' +
+                          DateFormat.yMMMd()
+                              .format(DateTime.parse(dateReminder)),
+                      style: TextStyle(fontStyle: FontStyle.italic)),
+                  Text(
+                    "Content Reminder: " +
+                        reminderContent +
+                        "                                                       ",
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

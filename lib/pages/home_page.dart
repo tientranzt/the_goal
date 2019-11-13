@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         titleSpacing: 0,
         backgroundColor: Color(0xFF396DF0),
         elevation: 0,
-        leading: LeadinguttonIcon(),
+        leading: LeadingButtonIcon(),
         title: Text('TheGoal'),
         actions: <Widget>[ActionIconButton()],
       ),

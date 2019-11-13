@@ -5,12 +5,12 @@ import 'package:path_provider/path_provider.dart';
 
 enum ChooseMedia { camera, gallery }
 
-class LeadinguttonIcon extends StatefulWidget {
+class LeadingButtonIcon extends StatefulWidget {
   @override
-  _LeadinguttonIconState createState() => _LeadinguttonIconState();
+  _LeadingButtonIconState createState() => _LeadingButtonIconState();
 }
 
-class _LeadinguttonIconState extends State<LeadinguttonIcon> {
+class _LeadingButtonIconState extends State<LeadingButtonIcon> {
   File _image;
 
   Future _getSaveImage() async {
@@ -37,11 +37,17 @@ class _LeadinguttonIconState extends State<LeadinguttonIcon> {
       var image = await ImagePicker.pickImage(source: ImageSource.camera);
       var pathLocal = await getApplicationDocumentsDirectory();
       await image.copy('${pathLocal.path}/profileImage.jpg');
+      setState(() {
+        _image = image;
+      });
     }
     if (media == ChooseMedia.gallery) {
       var image = await ImagePicker.pickImage(source: ImageSource.gallery);
       var pathLocal = await getApplicationDocumentsDirectory();
       await image.copy('${pathLocal.path}/profileImage.jpg');
+      setState(() {
+        _image = image;
+      });
     }
   }
 

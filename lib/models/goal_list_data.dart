@@ -4,7 +4,20 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 
 class GoalListData extends ChangeNotifier {
-  List _goalList = [];
+  List _goalList = [
+    {
+      "text": "hello",
+      "decsText": "hello",
+      "icon": 1,
+      "color": 1,
+      "reminder": DateTime.now().toString(),
+      "dateExpected": DateTime.now().toString(),
+      "createDate": DateTime.now().toString(),
+      "reminder": DateTime.now().toString(),
+      "reminderContent": "The goal reminder !",
+      "isDone": 0
+    }
+  ];
 
   final List<Color> _colorData = [
     Colors.brown,
@@ -42,18 +55,13 @@ class GoalListData extends ChangeNotifier {
     Icons.list,
     Icons.input,
     Icons.print,
-    Icons.more,
     Icons.title,
     Icons.photo_camera,
     Icons.access_alarm,
     Icons.add_alert,
-    Icons.adjust,
-    Icons.airline_seat_flat,
     Icons.assessment,
     Icons.time_to_leave,
     Icons.memory,
-    Icons.call_merge,
-    Icons.brightness_1,
     Icons.backup,
     Icons.attach_money,
     Icons.bubble_chart,
@@ -72,7 +80,7 @@ class GoalListData extends ChangeNotifier {
   Future<File> writeListGoalToFile(List goalListData) async {
     final file = await _localFile;
     file.exists().then((value) {
-      if (value) file.createSync();
+      if (!value) file.createSync();
     });
     var jsonCode = jsonEncode(goalListData);
     return file.writeAsString('$jsonCode');
@@ -82,6 +90,7 @@ class GoalListData extends ChangeNotifier {
     try {
       final file = await _localFile;
       String contents = await file.readAsString();
+      _goalList = jsonDecode(contents);
       return jsonDecode(contents);
     } catch (e) {
       return [];
@@ -138,14 +147,16 @@ class GoalListData extends ChangeNotifier {
   }
 
   List get getGoalList {
-    readGoalList().then((value) {
-      _goalList = value;
-    });
+//    readGoalList().then((value) {
+//      _goalList = value;
+//    });
     return _goalList;
   }
 
   int get getLengthGoalList {
-    readGoalList().then((val) => _goalList = val);
+//    readGoalList().then((val) {
+//      _goalList = val;
+//    });
     return _goalList.length;
   }
 
