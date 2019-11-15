@@ -114,7 +114,8 @@ class _AddGoalContainerState extends State<AddGoalContainer> {
       "reminderContent": reminderConent.isEmpty
           ? "The goal $textTitle reminder !"
           : reminderConent,
-      "isDone": 0
+      "isDone": 0,
+      "isReminder": 0,
     };
     if (goal['text'].toString().isEmpty &&
         goal['decsText'].toString().isEmpty) {

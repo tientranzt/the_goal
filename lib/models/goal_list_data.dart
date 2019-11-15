@@ -4,20 +4,7 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 
 class GoalListData extends ChangeNotifier {
-  List _goalList = [
-    {
-      "text": "hello",
-      "decsText": "hello",
-      "icon": 1,
-      "color": 1,
-      "reminder": DateTime.now().toString(),
-      "dateExpected": DateTime.now().toString(),
-      "createDate": DateTime.now().toString(),
-      "reminder": DateTime.now().toString(),
-      "reminderContent": "The goal reminder !",
-      "isDone": 0
-    }
-  ];
+  List _goalList = [];
 
   final List<Color> _colorData = [
     Colors.brown,
@@ -147,16 +134,10 @@ class GoalListData extends ChangeNotifier {
   }
 
   List get getGoalList {
-//    readGoalList().then((value) {
-//      _goalList = value;
-//    });
     return _goalList;
   }
 
   int get getLengthGoalList {
-//    readGoalList().then((val) {
-//      _goalList = val;
-//    });
     return _goalList.length;
   }
 
@@ -174,5 +155,12 @@ class GoalListData extends ChangeNotifier {
 
   int get lengthIconList {
     return _iconData.length;
+  }
+
+  void isReminder(int index) {
+    if (_goalList.length > 0) {
+      _goalList[index]['isReminder'] = 1;
+      writeListGoalToFile(_goalList);
+    }
   }
 }

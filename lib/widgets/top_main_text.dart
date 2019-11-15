@@ -16,7 +16,7 @@ class MainText extends StatelessWidget {
                 style: TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
               ),
               SizedBox(
-                height: 10,
+                height: 8,
               ),
               Text('Happy day and got the goals 😘',
                   style: TextStyle(fontSize: 17, color: Colors.grey)),
