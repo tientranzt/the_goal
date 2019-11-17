@@ -20,20 +20,18 @@ class _BottomHomeScreenState extends State<BottomHomeScreen> {
     super.initState();
     var android = AndroidInitializationSettings('mipmap/ic_launcher');
     var ios = IOSInitializationSettings();
-    var initializationSettings = InitializationSettings(android, ios);
-    flutterLocalNotificationsPlugin.initialize(initializationSettings,
+    var setting = InitializationSettings(android, ios);
+    flutterLocalNotificationsPlugin.initialize(setting,
         onSelectNotification: onSelectNotification);
   }
 
-  void showNotificationSchedule(int indexGoal,
-      DateTime scheduledNotificationDateTime, String content) async {
-    var androidPlatformChannelSpecifics =
-        new AndroidNotificationDetails('id', 'name', 'description');
-    var iOSPlatformChannelSpecifics = new IOSNotificationDetails();
-    NotificationDetails platformChannelSpecifics = new NotificationDetails(
-        androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
-    await flutterLocalNotificationsPlugin.schedule(0, 'Goal Application',
-        '$content', scheduledNotificationDateTime, platformChannelSpecifics);
+  void showNotificationSchedule(
+      int indexGoal, DateTime scheduledDate, String content) async {
+    var android = new AndroidNotificationDetails('id', 'name', 'description');
+    var ios = new IOSNotificationDetails();
+    NotificationDetails platformChannel = new NotificationDetails(android, ios);
+    await flutterLocalNotificationsPlugin.schedule(
+        0, 'Goal Application', '$content', scheduledDate, platformChannel);
     GoalListData goalListData = GoalListData();
     goalListData.isReminder(indexGoal);
   }
@@ -50,7 +48,9 @@ class _BottomHomeScreenState extends State<BottomHomeScreen> {
     return FutureBuilder(
       future: Provider.of<GoalListData>(context).readGoalList(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
-        if (snapshot.data == null) {
+        var listGoal = snapshot.data;
+
+        if (listGoal == null) {
           return Center(
             child: Padding(
               padding: EdgeInsets.all(5),
@@ -58,7 +58,7 @@ class _BottomHomeScreenState extends State<BottomHomeScreen> {
             ),
           );
         }
-        if (snapshot.data.length == 0) {
+        if (listGoal.length == 0) {
           return Center(
             child: Padding(
               padding: EdgeInsets.all(5),
@@ -75,27 +75,26 @@ class _BottomHomeScreenState extends State<BottomHomeScreen> {
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemBuilder: (context, index) {
-              var contentRiminder = snapshot.data[index]['reminderContent'];
-              var dateRiminder =
-                  DateTime.parse(snapshot.data[index]['reminder']);
-              if (snapshot.data[index]['isReminder'] == 0) {
+              var contentRiminder = listGoal[index]['reminderContent'];
+              var dateRiminder = DateTime.parse(listGoal[index]['reminder']);
+              if (listGoal[index]['isReminder'] == 0) {
                 Provider.of<GoalListData>(context).isReminder(index);
                 showNotificationSchedule(index, dateRiminder, contentRiminder);
               }
 
               return BottomGoalTitle(
                   indexGoal: index,
-                  text: '${snapshot.data[index]['text']}',
-                  decsText: '${snapshot.data[index]['decsText']}',
-                  color: snapshot.data[index]['color'],
-                  icon: snapshot.data[index]['icon'],
-                  isDone: snapshot.data[index]['isDone'],
-                  createDate: snapshot.data[index]['createDate'],
-                  dateExpected: snapshot.data[index]['dateExpected'],
-                  reminderContent: snapshot.data[index]['reminderContent'],
-                  dateReminder: snapshot.data[index]['reminder']);
+                  text: '${listGoal[index]['text']}',
+                  decsText: '${listGoal[index]['decsText']}',
+                  color: listGoal[index]['color'],
+                  icon: listGoal[index]['icon'],
+                  isDone: listGoal[index]['isDone'],
+                  createDate: listGoal[index]['createDate'],
+                  dateExpected: listGoal[index]['dateExpected'],
+                  reminderContent: listGoal[index]['reminderContent'],
+                  dateReminder: listGoal[index]['reminder']);
             },
-            itemCount: snapshot.data.length,
+            itemCount: listGoal.length,
           ),
         );
       },

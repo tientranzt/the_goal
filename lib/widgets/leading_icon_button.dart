@@ -13,7 +13,7 @@ class LeadingButtonIcon extends StatefulWidget {
 class _LeadingButtonIconState extends State<LeadingButtonIcon> {
   File _image;
 
-  Future _getSaveImage() async {
+  void _getSaveImage() async {
     File imageResult;
     try {
       await File('/data/user/0/thegoal.the_goal/app_flutter/profileImage.jpg')
@@ -29,22 +29,25 @@ class _LeadingButtonIconState extends State<LeadingButtonIcon> {
     } on FileSystemException catch (_) {
       imageResult = null;
     }
-    _image = imageResult;
+    setState(() {
+      _image = imageResult;
+    });
   }
 
   Future getImage(ChooseMedia media) async {
     if (media == ChooseMedia.camera) {
-      var image = await ImagePicker.pickImage(source: ImageSource.camera);
-      var pathLocal = await getApplicationDocumentsDirectory();
+      File image = await ImagePicker.pickImage(source: ImageSource.camera);
+      Directory pathLocal = await getApplicationDocumentsDirectory();
       await image.copy('${pathLocal.path}/profileImage.jpg');
       setState(() {
         _image = image;
       });
     }
-    if (media == ChooseMedia.gallery) {
-      var image = await ImagePicker.pickImage(source: ImageSource.gallery);
-      var pathLocal = await getApplicationDocumentsDirectory();
+    if (ChooseMedia.gallery == media) {
+      File image = await ImagePicker.pickImage(source: ImageSource.gallery);
+      Directory pathLocal = await getApplicationDocumentsDirectory();
       await image.copy('${pathLocal.path}/profileImage.jpg');
+
       setState(() {
         _image = image;
       });
@@ -52,44 +55,45 @@ class _LeadingButtonIconState extends State<LeadingButtonIcon> {
   }
 
   @override
+  void initState() {
+    _getSaveImage();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _getSaveImage(),
-      builder: (context, snapshot) {
-        return PopupMenuButton(
-          elevation: 5,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15))),
-          onSelected: (ChooseMedia media) {
-            getImage(media);
-          },
-          itemBuilder: (BuildContext context) => <PopupMenuEntry<ChooseMedia>>[
-            const PopupMenuItem<ChooseMedia>(
-              value: ChooseMedia.gallery,
-              child: ListTile(
-                leading: Icon(
-                  Icons.picture_in_picture,
-                ),
-                title: Text('From galaxy'),
-              ),
-            ),
-            const PopupMenuItem<ChooseMedia>(
-              value: ChooseMedia.camera,
-              child: ListTile(
-                leading: Icon(Icons.camera),
-                title: Text('Take picture'),
-              ),
-            ),
-          ],
-          child: Container(
-              decoration: BoxDecoration(),
-              padding: EdgeInsets.all(7),
-              child: CircleAvatar(
-                  backgroundImage: _image == null
-                      ? AssetImage('assets/images/profile.jpg')
-                      : FileImage(_image))),
-        );
+    return PopupMenuButton(
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15))),
+      onSelected: (ChooseMedia media) {
+        getImage(media);
       },
+      itemBuilder: (BuildContext context) => <PopupMenuEntry<ChooseMedia>>[
+        const PopupMenuItem<ChooseMedia>(
+          value: ChooseMedia.gallery,
+          child: ListTile(
+            leading: Icon(
+              Icons.picture_in_picture,
+            ),
+            title: Text('From galaxy'),
+          ),
+        ),
+        const PopupMenuItem<ChooseMedia>(
+          value: ChooseMedia.camera,
+          child: ListTile(
+            leading: Icon(Icons.camera),
+            title: Text('Take picture'),
+          ),
+        ),
+      ],
+      child: Container(
+          decoration: BoxDecoration(),
+          padding: EdgeInsets.all(7),
+          child: CircleAvatar(
+              backgroundImage: _image == null
+                  ? AssetImage('assets/images/profile.jpg')
+                  : FileImage(_image))),
     );
   }
 }
