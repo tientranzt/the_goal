@@ -1,8 +1,20 @@
 # the_goal
 
-An application to manament your goal so perfect
+An application to manament your goal or shopping list so perfect
 
-# Show this application.
+# Tính năng
+- Pick image avatar
+- Add new goal (check done, near done, total goal)
+- Notification and remider when reminder date coming.
+
+# Feature
+- State managment with Provider 
+- Pick image avatar
+- Add new goal (check done, near done, total goal, swipe rtl to remove goal, tap to expand detail goal)
+- Notification and remider when reminder date coming.
+
+# Show images this application.
+
 <p float="left">
 <img src="/gallery/1.png" width="250" height="400">
 <img src="/gallery/2.png" width="250" height="400">
@@ -10,19 +22,3 @@ An application to manament your goal so perfect
 <img src="/gallery/4.png" width="250" height="400">
 <img src="/gallery/5.png" width="250" height="400">
 </p>
-<!-- ![](/gallery/1.png = width=100)
-![](/gallery/2.png = width=100)
-![](/gallery/3.png = width=100)
-![](/gallery/4.png = width=100)
-![](/gallery/5.png = width=100) -->
-<!-- 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference. -->
