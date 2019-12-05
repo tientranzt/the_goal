@@ -4,11 +4,12 @@ An application to manament your goal so perfect
 
 # Show this application.
 
-<img src="/gallery/1.png" width="100" height="500">
-<img src="/gallery/2.png" width="100" height="500">
-<img src="/gallery/3.png" width="100" height="500">
-<img src="/gallery/4.png" width="100" height="500">
-<img src="/gallery/5.png" width="100" height="500">
+<img src="/gallery/1.png" width="200" height="300">
+<img src="/gallery/2.png" width="200" height="300">
+<img src="/gallery/3.png" width="200" height="300">
+<img src="/gallery/4.png" width="200" height="300">
+<img src="/gallery/5.png" width="200" height="300">
+
 <!-- ![](/gallery/1.png = width=100)
 ![](/gallery/2.png = width=100)
 ![](/gallery/3.png = width=100)
