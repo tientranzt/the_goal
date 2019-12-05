@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\Flutter\\the_goal\\build\\flutter_local_notifications\\intermediates\\res\\merged\\release\\values-in\\values-in.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\znkta\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.1.aar\\0af15e7b6351837b0a66f11ebd11b08c\\res\\values-in\\values-in.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "D:\\Flutter\\the_goal\\build\\flutter_local_notifications\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-in\\values-in.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\znkta\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.1.aar\\0af15e7b6351837b0a66f11ebd11b08c\\res\\values-in\\values-in.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}

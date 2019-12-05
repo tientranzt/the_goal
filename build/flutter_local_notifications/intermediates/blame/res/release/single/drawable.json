@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\Flutter\\the_goal\\build\\flutter_local_notifications\\intermediates\\res\\merged\\release\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\znkta\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.1.aar\\0af15e7b6351837b0a66f11ebd11b08c\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "D:\\Flutter\\the_goal\\build\\flutter_local_notifications\\intermediates\\res\\merged\\release\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\znkta\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.1.aar\\0af15e7b6351837b0a66f11ebd11b08c\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "D:\\Flutter\\the_goal\\build\\flutter_local_notifications\\intermediates\\res\\merged\\release\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\znkta\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.1.aar\\0af15e7b6351837b0a66f11ebd11b08c\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "D:\\Flutter\\the_goal\\build\\flutter_local_notifications\\intermediates\\res\\merged\\release\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\znkta\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.1.aar\\0af15e7b6351837b0a66f11ebd11b08c\\res\\drawable\\notification_icon_background.xml"
+    }
+]

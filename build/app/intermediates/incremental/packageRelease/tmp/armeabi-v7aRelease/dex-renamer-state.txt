@@ -1,0 +1,4 @@
+#Thu Dec 05 11:05:45 ICT 2019
+base.0=D\:\\Flutter\\the_goal\\build\\app\\intermediates\\transforms\\dexMerger\\release\\0
+path.0=classes.dex
+renamed.0=classes.dex

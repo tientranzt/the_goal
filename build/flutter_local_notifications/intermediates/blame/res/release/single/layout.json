@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "D:\\Flutter\\the_goal\\build\\flutter_local_notifications\\intermediates\\res\\merged\\release\\layout\\notification_action.xml",
+        "source": "C:\\Users\\znkta\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.1.aar\\0af15e7b6351837b0a66f11ebd11b08c\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "D:\\Flutter\\the_goal\\build\\flutter_local_notifications\\intermediates\\res\\merged\\release\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\znkta\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.1.aar\\0af15e7b6351837b0a66f11ebd11b08c\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "D:\\Flutter\\the_goal\\build\\flutter_local_notifications\\intermediates\\res\\merged\\release\\layout\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\znkta\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.1.aar\\0af15e7b6351837b0a66f11ebd11b08c\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "D:\\Flutter\\the_goal\\build\\flutter_local_notifications\\intermediates\\res\\merged\\release\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\znkta\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.1.aar\\0af15e7b6351837b0a66f11ebd11b08c\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "D:\\Flutter\\the_goal\\build\\flutter_local_notifications\\intermediates\\res\\merged\\release\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\znkta\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.1.aar\\0af15e7b6351837b0a66f11ebd11b08c\\res\\layout\\notification_template_part_chronometer.xml"
+    }
+]
