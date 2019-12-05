@@ -4,11 +4,16 @@ An application to manament your goal so perfect
 
 # Show this application.
 
-![](/gallery/1.png)
-![](/gallery/2.png)
-![](/gallery/3.png)
-![](/gallery/4.png)
-![](/gallery/5.png)
+<img src="/gallery/1.png" width="100" height="500">
+<img src="/gallery/2.png" width="100" height="100">
+<img src="/gallery/3.png" width="100" height="100">
+<img src="/gallery/4.png" width="100" height="100">
+<img src="/gallery/5.png" width="100" height="100">
+<!-- ![](/gallery/1.png = width=100)
+![](/gallery/2.png = width=100)
+![](/gallery/3.png = width=100)
+![](/gallery/4.png = width=100)
+![](/gallery/5.png = width=100) -->
 <!-- 
 This project is a starting point for a Flutter application.
 
