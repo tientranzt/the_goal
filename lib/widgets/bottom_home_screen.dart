@@ -4,7 +4,6 @@ import 'package:the_goal/models/goal_list_data.dart';
 import 'package:the_goal/widgets/bottom_goal_title.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:the_goal/pages/home_page.dart';
 
 class BottomHomeScreen extends StatefulWidget {
   @override
@@ -18,11 +17,10 @@ class _BottomHomeScreenState extends State<BottomHomeScreen> {
   @override
   void initState() {
     super.initState();
-    var android = AndroidInitializationSettings('mipmap/ic_launcher');
+    var android = AndroidInitializationSettings('app_icon');
     var ios = IOSInitializationSettings();
     var setting = InitializationSettings(android, ios);
-    flutterLocalNotificationsPlugin.initialize(setting,
-        onSelectNotification: onSelectNotification);
+    flutterLocalNotificationsPlugin.initialize(setting);
   }
 
   void showNotificationSchedule(
@@ -31,16 +29,9 @@ class _BottomHomeScreenState extends State<BottomHomeScreen> {
     var ios = new IOSNotificationDetails();
     NotificationDetails platformChannel = new NotificationDetails(android, ios);
     await flutterLocalNotificationsPlugin.schedule(
-        0, 'Goal Application', '$content', scheduledDate, platformChannel);
+        indexGoal, 'Goal List', '$content', scheduledDate, platformChannel);
     GoalListData goalListData = GoalListData();
     goalListData.isReminder(indexGoal);
-  }
-
-  Future onSelectNotification(String payload) async {
-    await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage()),
-    );
   }
 
   @override
@@ -61,8 +52,11 @@ class _BottomHomeScreenState extends State<BottomHomeScreen> {
         if (listGoal.length == 0) {
           return Center(
             child: Padding(
-              padding: EdgeInsets.all(5),
-              child: Text('Add more goal which top right button'),
+              padding: EdgeInsets.all(10),
+              child: Text(
+                'Add more goal which top right button',
+                style: TextStyle( fontSize: 16),
+              ),
             ),
           );
         }
@@ -81,7 +75,6 @@ class _BottomHomeScreenState extends State<BottomHomeScreen> {
                 Provider.of<GoalListData>(context).isReminder(index);
                 showNotificationSchedule(index, dateRiminder, contentRiminder);
               }
-
               return BottomGoalTitle(
                   indexGoal: index,
                   text: '${listGoal[index]['text']}',

@@ -14,7 +14,12 @@ class HomePage extends StatelessWidget {
         backgroundColor: Color(0xFF396DF0),
         elevation: 0,
         leading: LeadingButtonIcon(),
-        title: Text('TheGoal'),
+        title: Text(
+          'TheGoal',
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20),
+        ),
         actions: <Widget>[ActionIconButton()],
       ),
       body: SingleChildScrollView(

@@ -56,7 +56,8 @@ class BottomGoalTitle extends StatelessWidget {
                 padding: EdgeInsets.only(left: 25),
                 child: Text(
                   'Delete',
-                  style: TextStyle(color: Colors.white),
+                  style:
+                      TextStyle(color: Colors.white, fontFamily: 'DancingBold'),
                 ),
               )
             ],
@@ -68,7 +69,12 @@ class BottomGoalTitle extends StatelessWidget {
         child: ExpansionTile(
           title: Text(
             text,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'DancingBold',
+            ),
+            maxLines: 1,
           ),
           leading: Container(
             decoration: BoxDecoration(
@@ -100,35 +106,45 @@ class BottomGoalTitle extends StatelessWidget {
           ),
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(top: 0, left: 25, right: 25, bottom: 10),
+              padding: EdgeInsets.only(top: 0, left: 30, right: 30, bottom: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "Description: " +
-                        decsText +
+                    "Title: " +
+                        text +
                         "                                                       ",
-                    style: TextStyle(fontStyle: FontStyle.italic),
+                    style:
+                        TextStyle(fontFamily: 'DancingRegular', fontSize: 17),
                   ),
                   Text(
-                      "Date Expected: " +
+                    "Description: " + decsText,
+                    style:
+                        TextStyle(fontFamily: 'DancingRegular', fontSize: 17),
+                  ),
+                  Text(
+                      "Expected Date: " +
                           DateFormat.yMMMd()
                               .format(DateTime.parse(dateExpected)),
-                      style: TextStyle(fontStyle: FontStyle.italic)),
+                      style: TextStyle(
+                          fontFamily: 'DancingRegular', fontSize: 17)),
                   Text(
-                      'Date Created: ' +
+                      'Created Date: ' +
                           DateFormat.yMMMd().format(DateTime.parse(createDate)),
-                      style: TextStyle(fontStyle: FontStyle.italic)),
+                      style: TextStyle(
+                          fontFamily: 'DancingRegular', fontSize: 17)),
                   Text(
-                      'Date Reminder: ' +
+                      'Reminder Date: ' +
                           DateFormat.yMMMd()
                               .format(DateTime.parse(dateReminder)),
-                      style: TextStyle(fontStyle: FontStyle.italic)),
+                      style: TextStyle(
+                          fontFamily: 'DancingRegular', fontSize: 17)),
                   Text(
-                    "Content Reminder: " +
+                    "Reminder Content: " +
                         reminderContent +
                         "                                                       ",
-                    style: TextStyle(fontStyle: FontStyle.italic),
+                    style:
+                        TextStyle(fontFamily: 'DancingRegular', fontSize: 17),
                   ),
                 ],
               ),

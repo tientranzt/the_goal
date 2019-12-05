@@ -1,9 +1,15 @@
 # the_goal
 
-An application to manament your goal so perfetch
+An application to manament your goal so perfect
 
-## Getting Started
+# Show this application.
 
+![](/gallery/1.png)
+![](/gallery/2.png)
+![](/gallery/3.png)
+![](/gallery/4.png)
+![](/gallery/5.png)
+<!-- 
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
@@ -13,4 +19,4 @@ A few resources to get you started if this is your first Flutter project:
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+samples, guidance on mobile development, and a full API reference. -->

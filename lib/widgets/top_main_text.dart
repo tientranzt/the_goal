@@ -13,13 +13,19 @@ class MainText extends StatelessWidget {
             children: <Widget>[
               Text(
                 '${Provider.of<GoalListData>(context).getLengthGoalList} Goals',
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
               SizedBox(
                 height: 8,
               ),
-              Text('Happy day and got the goals 😘',
-                  style: TextStyle(fontSize: 17, color: Colors.grey)),
+              Text('Have a nice day and got the goals 😘',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey,
+                  )),
             ],
           ),
         );

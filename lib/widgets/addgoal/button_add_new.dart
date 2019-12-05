@@ -14,7 +14,8 @@ class AddNewButton extends StatelessWidget {
         color: Color(0xFF396DF0),
         child: Text(
           'Add New',
-          style: TextStyle(color: Colors.white, fontSize: 16),
+          style: TextStyle(
+              color: Colors.white, fontSize: 18),
         ),
         onPressed: () {
           handleAddNewGoal();

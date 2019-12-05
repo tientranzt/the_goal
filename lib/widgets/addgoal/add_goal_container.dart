@@ -80,11 +80,16 @@ class _AddGoalContainerState extends State<AddGoalContainer> {
           elevation: 5,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(15))),
-          title: Text('Oh no!'),
+          title: Text(
+            'Oh no!',
+            style: TextStyle( fontSize: 18),
+          ),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text('Title and decsription must be fill'),
+                Text('Title and decsription must be fill',
+                    style:
+                        TextStyle(fontSize: 18)),
               ],
             ),
           ),

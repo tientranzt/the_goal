@@ -13,7 +13,8 @@ class AddNewColor extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('COLOR'),
+        Text('COLOR',
+            style: TextStyle(fontFamily: 'DancingBold', fontSize: 14)),
         Container(
           padding: EdgeInsets.only(top: 10, bottom: 15),
           child: Container(
@@ -25,9 +26,7 @@ class AddNewColor extends StatelessWidget {
                   child: null,
                   color:
                       Provider.of<GoalListData>(context).colorList[pickColor],
-                  onPressed: () {
-                    print('Choose color');
-                  },
+                  onPressed: () {},
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
                 ),

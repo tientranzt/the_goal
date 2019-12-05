@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -24,7 +25,8 @@ class _AddNewReminderState extends State<AddNewReminder> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('REMINDER'),
+        Text('REMINDER',
+            style: TextStyle(fontFamily: 'DancingBold', fontSize: 14)),
         Container(
           padding: EdgeInsets.only(top: 10, bottom: 15),
           child: Container(
@@ -67,6 +69,8 @@ class _AddNewReminderState extends State<AddNewReminder> {
                                           onChanged: (value) {
                                             widget.handleReminderContent(value);
                                           },
+                                          textCapitalization:
+                                              TextCapitalization.sentences,
                                         ),
                                         SizedBox(
                                           height: 15,
@@ -77,7 +81,7 @@ class _AddNewReminderState extends State<AddNewReminder> {
                                                 ? '${DateFormat.yMMMd().format(DateTime.now())}'
                                                 : '${DateFormat.yMMMd().format(datePick)}',
                                             style: TextStyle(
-                                                fontSize: 16,
+                                                fontSize: 15,
                                                 fontWeight: FontWeight.bold),
                                           ),
                                           trailing: FlatButton(
@@ -114,8 +118,9 @@ class _AddNewReminderState extends State<AddNewReminder> {
                                         FlatButton(
                                           child: Text(
                                             'OK',
-                                            style:
-                                                TextStyle(color: Colors.white),
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'DancingBold'),
                                           ),
                                           color: Colors.blueAccent,
                                           onPressed: () {

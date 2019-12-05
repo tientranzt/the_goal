@@ -13,7 +13,8 @@ class AddGoal extends StatelessWidget {
           centerTitle: true,
           title: Text(
             'Add New Goal',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(
+                color: Colors.black),
           ),
         ),
         body: AddGoalContainer());

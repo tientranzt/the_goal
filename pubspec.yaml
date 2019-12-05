@@ -12,7 +12,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-#  cupertino_icons: ^0.1.2
+  #  cupertino_icons: ^0.1.2
   intl: ^0.15.8
   provider: ^3.1.0+1
   path_provider: ^1.4.0
@@ -32,19 +32,16 @@ flutter:
 
   assets:
     - assets/images/
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #  - images/
-  #  - images/a_dot_ham.jpeg
+    # To add assets to your application, add an assets section, like this:
+    # assets:
+    #  - images/
+    #  - images/a_dot_ham.jpeg
   # fonts:
-  #   - family: Schyler
+  #   - family: DancingBold
   #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
+  #       - asset: assets/fonts/DancingScript-Bold.ttf
+  #   - family: DancingRegular
   #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  #       - asset: assets/fonts/DancingScript-Regular.ttf
+
 

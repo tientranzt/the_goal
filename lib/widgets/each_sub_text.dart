@@ -13,14 +13,21 @@ class EachSubText extends StatelessWidget {
         children: <Widget>[
           Text(
             text,
-            style: TextStyle(fontSize: 16, color: Colors.grey),
+            style: TextStyle(
+                fontSize: 16,
+                color: Colors.black54,
+                fontWeight: FontWeight.w700,
+                ),
           ),
           SizedBox(
             height: 10,
           ),
           Text(
             '$number',
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+            style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w300,
+               ),
           ),
         ],
       ),

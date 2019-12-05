@@ -13,7 +13,7 @@ class AddNewIcon extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('ICON'),
+        Text('ICON', style: TextStyle(fontFamily: 'DancingBold', fontSize: 14)),
         Container(
           padding: EdgeInsets.only(top: 10, bottom: 15),
           child: Container(

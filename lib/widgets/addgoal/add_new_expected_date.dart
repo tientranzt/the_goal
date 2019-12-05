@@ -10,7 +10,8 @@ class AddNewExpectDate extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('EXPECTED MATURITY DATE'),
+        Text('EXPECTED MATURITY DATE',
+            style: TextStyle(fontFamily: 'DancingBold', fontSize: 14)),
         Container(
           padding: EdgeInsets.only(top: 10, bottom: 15),
           child: Container(
@@ -26,7 +27,7 @@ class AddNewExpectDate extends StatelessWidget {
                 trailing: FlatButton(
                   onPressed: () {
                     showDatePicker(
-                      locale: Locale('vi'),
+                      locale: Locale('en'),
                       context: context,
                       initialDate: DateTime.now(),
                       firstDate: DateTime(2019),

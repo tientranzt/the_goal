@@ -32,9 +32,9 @@ class GoalListData extends ChangeNotifier {
   ];
 
   final List<IconData> _iconData = [
+    Icons.code,
     Icons.account_circle,
     Icons.add,
-    Icons.account_box,
     Icons.account_balance,
     Icons.alarm,
     Icons.label,
@@ -44,14 +44,48 @@ class GoalListData extends ChangeNotifier {
     Icons.print,
     Icons.title,
     Icons.photo_camera,
-    Icons.access_alarm,
     Icons.add_alert,
     Icons.assessment,
     Icons.time_to_leave,
     Icons.memory,
-    Icons.backup,
     Icons.attach_money,
-    Icons.bubble_chart,
+    Icons.beach_access,
+    Icons.delete,
+    Icons.done,
+    Icons.create,
+    Icons.call,
+    Icons.airline_seat_flat,
+    Icons.search,
+    Icons.ac_unit,
+    Icons.add_location,
+    Icons.account_balance_wallet,
+    Icons.airline_seat_individual_suite,
+    Icons.airplanemode_active,
+    Icons.attach_file,
+    Icons.airport_shuttle,
+    Icons.atm,
+    Icons.audiotrack,
+    Icons.cancel,
+    Icons.brightness_3,
+    Icons.build,
+    Icons.cake,
+    Icons.child_care,
+    Icons.child_friendly,
+    Icons.computer,
+    Icons.enhanced_encryption,
+    Icons.event,
+    Icons.face,
+    Icons.fastfood,
+    Icons.favorite,
+    Icons.feedback,
+    Icons.free_breakfast,
+    Icons.gps_fixed,
+    Icons.help,
+    Icons.hourglass_empty,
+    Icons.insert_comment,
+    Icons.lightbulb_outline,
+    Icons.local_hospital,
+    Icons.local_laundry_service
   ];
 
   Future<String> get _localPath async {
@@ -93,6 +127,7 @@ class GoalListData extends ChangeNotifier {
   void addItemToListGoal(goal) {
     _goalList.add(goal);
     writeListGoalToFile(_goalList);
+    notifyListeners();
   }
 
   void removeGoalFromList(int indexGoal) {
@@ -133,34 +168,20 @@ class GoalListData extends ChangeNotifier {
     return countDayNewGoal;
   }
 
-  List get getGoalList {
-    return _goalList;
-  }
-
-  int get getLengthGoalList {
-    return _goalList.length;
-  }
-
-  List<Color> get colorList {
-    return _colorData;
-  }
-
-  int get lengthColorList {
-    return _colorData.length;
-  }
-
-  List<IconData> get iconList {
-    return _iconData;
-  }
-
-  int get lengthIconList {
-    return _iconData.length;
-  }
-
   void isReminder(int index) {
     if (_goalList.length > 0) {
       _goalList[index]['isReminder'] = 1;
       writeListGoalToFile(_goalList);
     }
   }
+
+  int get getLengthGoalList => _goalList.length;
+
+  List<Color> get colorList => _colorData;
+
+  int get lengthColorList => _colorData.length;
+
+  List<IconData> get iconList => _iconData;
+
+  int get lengthIconList => _iconData.length;
 }

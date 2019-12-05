@@ -76,14 +76,18 @@ class _LeadingButtonIconState extends State<LeadingButtonIcon> {
             leading: Icon(
               Icons.picture_in_picture,
             ),
-            title: Text('From galaxy'),
+            title: Text(
+              'From galaxy',
+              style: TextStyle( fontSize: 16),
+            ),
           ),
         ),
         const PopupMenuItem<ChooseMedia>(
           value: ChooseMedia.camera,
           child: ListTile(
             leading: Icon(Icons.camera),
-            title: Text('Take picture'),
+            title: Text('Take picture',
+                style: TextStyle(fontSize: 16)),
           ),
         ),
       ],

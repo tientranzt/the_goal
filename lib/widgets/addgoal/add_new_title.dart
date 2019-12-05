@@ -8,7 +8,8 @@ class AddNewTitle extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('GOAL TITLE'),
+        Text('GOAL TITLE',
+            style: TextStyle(fontFamily: 'DancingBold', fontSize: 14)),
         Container(
           padding: EdgeInsets.only(bottom: 15, top: 15),
           child: Container(
@@ -20,7 +21,7 @@ class AddNewTitle extends StatelessWidget {
               decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(14),
                   hintStyle:
-                      TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   hintText: 'Save \$50.000',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15)))),
