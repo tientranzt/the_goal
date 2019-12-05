@@ -8,6 +8,8 @@ An application to manament your goal or shopping list so perfect
 - Add new goal (check done, near done, total goal, swipe rtl to remove goal, tap to expand detail goal)
 - Notification and remider when reminder date coming.
 
+## APK file in folder apk with 32 and 64bit version
+
 # Show images this application.
 
 <p float="left">
