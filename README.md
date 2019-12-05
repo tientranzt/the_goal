@@ -1,4 +1,4 @@
-# the_goal
+# The Goal
 
 An application to manament your goal or shopping list so perfect
 
