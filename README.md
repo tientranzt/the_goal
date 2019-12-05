@@ -2,11 +2,6 @@
 
 An application to manament your goal or shopping list so perfect
 
-# Tính năng
-- Pick image avatar
-- Add new goal (check done, near done, total goal)
-- Notification and remider when reminder date coming.
-
 # Feature
 - State managment with Provider 
 - Pick image avatar
