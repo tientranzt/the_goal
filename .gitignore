@@ -29,6 +29,7 @@
 .pub/
 /build/
 
+#No upload build
 # Android related
 **/android/**/gradle-wrapper.jar
 **/android/.gradle
