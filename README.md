@@ -1,6 +1,6 @@
 # The Goal
 
-An application to manament your goal or shopping list so perfect
+An application to managment your goal or shopping list so perfect
 
 # Feature
 - State managment with Provider 
